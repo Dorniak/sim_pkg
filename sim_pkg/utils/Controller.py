@@ -1,4 +1,4 @@
-from DC_motor_sim import DC_motor_sim
+from utils.DC_motor_sim import DC_motor_sim
 class Controller:
     def __init__(self):
         self.Kp = 0.0
@@ -68,3 +68,13 @@ class Controller:
         # print("Current speed: ", motor_speed)
         # print("salida PID: ", new_motor_voltage)
         return motor_speed, new_motor_voltage
+    
+
+if __name__ == '__main__':
+    controller = Controller()
+    Kp=0.1#0.1#0.5
+    Ki=7#0.008#0.004
+    Kd=0.6#0.0#0.º
+    controller.Init(Kp, Ki, Kd)
+    print('Init')
+    controller.Set_reference(50.0)
